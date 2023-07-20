@@ -3,21 +3,21 @@ import { useNavigate } from 'react-router-dom';
 import { Route, Routes } from 'react-router-dom';
 import WeatherDetail from "./WeatherDetail";
 
-function Weather({ weather }) {
+function Weather({ props }) {
   const navigate=useNavigate();
 
   const updateDetail=()=>{
-    navigate(`/weather-detail/${weather.id}`);
+    navigate(`/weather-detail/${props.id}`);
   }
 
   return (
     <div>
-      <p>City: {weather.city}</p>
-      <p>Temperature: {weather.temperature}</p>
+      <p>City: {props.city}</p>
+      <p>Temperature: {props.temperature}</p>
       <button onClick={updateDetail}>Details</button>
       
       <Routes>
-        <Route path={`/weather-detail/:${weather.id}`} element={<WeatherDetail/>}/>
+        <Route path={`/weather-detail/:${props.id}`} element={<WeatherDetail/>}/>
       </Routes>
     
       
